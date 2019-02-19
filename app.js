@@ -42,12 +42,13 @@ app.use(session({
 
 app.use(cors());
 app.use((req, res, next) => {
+  console.log('===============>req', req.session);
   if (!req.session.userId) {
+    req.isLogin = false;
     return next();
   }
-  const user = data.find(el => el.id === req.session.userId);
   req.isLogin = true;
-  next();
+  return next();
 });
 app.use('/', indexRouter);
 
