@@ -5,10 +5,19 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nunjucks = require('nunjucks')
 const indexRouter = require('./routes/index');
+const session = require('express-session');
+const cors = require('cors');
+const FileStore = require('session-file-store')(session);
 
 const app = express();
+const data = [
+  { id: 1, username: 'test1', password: '123' },
+  { id: 2, username: '007', password: '123' },
+  { id: 3, username: 'test2', password: '123' },
+  { id: 4, username: 'test3', password: '123' },
+  { id: 5, username: 'test4', password: '123' },
+]
 
-// =========set nunjuck engine template =======
 nunjucks.configure('views', {
   autoescape: false,
   express: app,
@@ -23,6 +32,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  name: 'server-session-cookie-id',
+  secret: 'test',
+  saveUninitialized: true,
+  resave: true,
+  store: new FileStore()
+}))
+
+app.use(cors());
+app.use((req, res, next) => {
+  if (!req.session.userId) {
+    return next();
+  }
+  const user = data.find(el => el.id === req.session.userId);
+  req.isLogin = true;
+  next();
+});
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
