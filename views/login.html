@@ -6,10 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ title }}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
 </head>
 
+<style>
+  .login__layout {
+    background: rgb(24, 58, 89);
+    min-height: 100vh;
+    padding: 130px;
+  }
+
+  .form__bg {
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 24px 12px;
+    margin: 0px auto;
+    padding: 24px 48px;
+    border-radius: 4px;
+  }
+
+  .form__login {
+    padding: 15px;
+    max-width: 330px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .sub__title {
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .input__box {
+    margin-bottom: 1.5rem;
+  }
+
+
+</style>
+
 <body>
-  <h1>Login Page</h1>
+  <div class="container-fluid login__layout">
+    <form class="form__login form__bg">
+      <h2 class="text-center title">Login to your account</h2>
+      <h4 class="text-center sub__title">All fields are required</h4>
+      <div class="form-group input__box">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+      </div>
+      <div class="form-group input__box">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%">Submit</button>
+    </form>
+  </div>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
 
 </html>
